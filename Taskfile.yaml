@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  generate:
+    aliases:
+      - gen
+    desc: 'Generate code from contrcts'
+    cmds:
+      - docker build -t proto-generator .
+      - docker run --rm -v $(pwd):/app proto-generator
