@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"6\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"F\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,9 +33,9 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\014bot.v1;botv1'
   _globals['_SENDMESSAGEREQUEST']._serialized_start=22
-  _globals['_SENDMESSAGEREQUEST']._serialized_end=76
-  _globals['_SENDMESSAGERESPONSE']._serialized_start=78
-  _globals['_SENDMESSAGERESPONSE']._serialized_end=116
-  _globals['_TELEGRAMSERVICE']._serialized_start=118
-  _globals['_TELEGRAMSERVICE']._serialized_end=201
+  _globals['_SENDMESSAGEREQUEST']._serialized_end=92
+  _globals['_SENDMESSAGERESPONSE']._serialized_start=94
+  _globals['_SENDMESSAGERESPONSE']._serialized_end=132
+  _globals['_TELEGRAMSERVICE']._serialized_start=134
+  _globals['_TELEGRAMSERVICE']._serialized_end=217
 # @@protoc_insertion_point(module_scope)

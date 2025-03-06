@@ -11,6 +11,7 @@ service TelegramService {
 message SendMessageRequest {
 	string chat_id = 1;
   string message = 2;
+	repeated string images = 3;
 }
 
 message SendMessageResponse {
