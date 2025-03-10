@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"F\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t2S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2W\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"\xbe\x01\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\x12\x35\n\nmoderators\x18\x04 \x03(\x0b\x32!.bot.SendMessageRequest.Moderator\x1a?\n\tModerator\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t2S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2W\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,16 +32,18 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'bot.bot_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\014bot.v1;botv1'
-  _globals['_SENDMESSAGEREQUEST']._serialized_start=22
-  _globals['_SENDMESSAGEREQUEST']._serialized_end=92
-  _globals['_SENDMESSAGERESPONSE']._serialized_start=94
-  _globals['_SENDMESSAGERESPONSE']._serialized_end=132
-  _globals['_SAVEMODERATORREQUEST']._serialized_start=134
-  _globals['_SAVEMODERATORREQUEST']._serialized_end=208
-  _globals['_SAVEMODERATORRESPONSE']._serialized_start=210
-  _globals['_SAVEMODERATORRESPONSE']._serialized_end=263
-  _globals['_TELEGRAMSERVICE']._serialized_start=265
-  _globals['_TELEGRAMSERVICE']._serialized_end=348
-  _globals['_SERVERSERVICE']._serialized_start=350
-  _globals['_SERVERSERVICE']._serialized_end=437
+  _globals['_SENDMESSAGEREQUEST']._serialized_start=23
+  _globals['_SENDMESSAGEREQUEST']._serialized_end=213
+  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_start=150
+  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_end=213
+  _globals['_SENDMESSAGERESPONSE']._serialized_start=215
+  _globals['_SENDMESSAGERESPONSE']._serialized_end=253
+  _globals['_SAVEMODERATORREQUEST']._serialized_start=255
+  _globals['_SAVEMODERATORREQUEST']._serialized_end=329
+  _globals['_SAVEMODERATORRESPONSE']._serialized_start=331
+  _globals['_SAVEMODERATORRESPONSE']._serialized_end=384
+  _globals['_TELEGRAMSERVICE']._serialized_start=386
+  _globals['_TELEGRAMSERVICE']._serialized_end=469
+  _globals['_SERVERSERVICE']._serialized_start=471
+  _globals['_SERVERSERVICE']._serialized_end=558
 # @@protoc_insertion_point(module_scope)

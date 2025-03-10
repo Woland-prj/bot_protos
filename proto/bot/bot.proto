@@ -9,9 +9,15 @@ service TelegramService {
 }
 
 message SendMessageRequest {
+  message Moderator {
+    string chat_id = 1;
+    string user_id = 2;
+    string username = 3;
+  }
 	string chat_id = 1;
   string message = 2;
 	repeated string images = 3;
+  repeated Moderator moderators = 4;
 }
 
 message SendMessageResponse {
