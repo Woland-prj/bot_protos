@@ -30,5 +30,5 @@ message SaveModeratorRequest {
 
 message SaveModeratorResponse {
 	bool success = 1;
-  bool uid = 2;
+  string uid = 2;
 }
