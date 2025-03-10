@@ -103,3 +103,89 @@ var TelegramService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "bot/bot.proto",
 }
+
+// ServerServiceClient is the client API for ServerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServerServiceClient interface {
+	SaveModerator(ctx context.Context, in *SaveModeratorRequest, opts ...grpc.CallOption) (*SaveModeratorResponse, error)
+}
+
+type serverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServerServiceClient(cc grpc.ClientConnInterface) ServerServiceClient {
+	return &serverServiceClient{cc}
+}
+
+func (c *serverServiceClient) SaveModerator(ctx context.Context, in *SaveModeratorRequest, opts ...grpc.CallOption) (*SaveModeratorResponse, error) {
+	out := new(SaveModeratorResponse)
+	err := c.cc.Invoke(ctx, "/bot.ServerService/SaveModerator", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServerServiceServer is the server API for ServerService service.
+// All implementations must embed UnimplementedServerServiceServer
+// for forward compatibility
+type ServerServiceServer interface {
+	SaveModerator(context.Context, *SaveModeratorRequest) (*SaveModeratorResponse, error)
+	mustEmbedUnimplementedServerServiceServer()
+}
+
+// UnimplementedServerServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedServerServiceServer struct {
+}
+
+func (UnimplementedServerServiceServer) SaveModerator(context.Context, *SaveModeratorRequest) (*SaveModeratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SaveModerator not implemented")
+}
+func (UnimplementedServerServiceServer) mustEmbedUnimplementedServerServiceServer() {}
+
+// UnsafeServerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServerServiceServer will
+// result in compilation errors.
+type UnsafeServerServiceServer interface {
+	mustEmbedUnimplementedServerServiceServer()
+}
+
+func RegisterServerServiceServer(s grpc.ServiceRegistrar, srv ServerServiceServer) {
+	s.RegisterService(&ServerService_ServiceDesc, srv)
+}
+
+func _ServerService_SaveModerator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveModeratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServerServiceServer).SaveModerator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bot.ServerService/SaveModerator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServerServiceServer).SaveModerator(ctx, req.(*SaveModeratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServerService_ServiceDesc is the grpc.ServiceDesc for ServerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "bot.ServerService",
+	HandlerType: (*ServerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SaveModerator",
+			Handler:    _ServerService_SaveModerator_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "bot/bot.proto",
+}

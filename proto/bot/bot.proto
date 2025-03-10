@@ -17,3 +17,18 @@ message SendMessageRequest {
 message SendMessageResponse {
 	bool success = 1;
 }
+
+service ServerService {
+  rpc SaveModerator (SaveModeratorRequest) returns (SaveModeratorResponse);
+}
+
+message SaveModeratorRequest {
+  string chat_id = 1;
+  string user_id = 2;
+  string username = 3;
+}
+
+message SaveModeratorResponse {
+	bool success = 1;
+  bool uid = 2;
+}
