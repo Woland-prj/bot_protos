@@ -26,6 +26,7 @@ message SendMessageResponse {
 
 service ServerService {
   rpc SaveModerator (SaveModeratorRequest) returns (SaveModeratorResponse);
+  rpc UpdateStatus (UpdateStatusRequest) returns (UpdateStatusResponse);
 }
 
 message SaveModeratorRequest {
@@ -37,4 +38,14 @@ message SaveModeratorRequest {
 message SaveModeratorResponse {
 	bool success = 1;
   string uid = 2;
+}
+
+message UpdateStatusRequest {
+  string chat_id = 1;
+  string order_id = 2;
+  string status = 3;
+}
+
+message UpdateStatusResponse {
+  bool success = 1;
 }

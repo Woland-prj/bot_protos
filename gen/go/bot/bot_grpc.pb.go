@@ -109,6 +109,7 @@ var TelegramService_ServiceDesc = grpc.ServiceDesc{
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServerServiceClient interface {
 	SaveModerator(ctx context.Context, in *SaveModeratorRequest, opts ...grpc.CallOption) (*SaveModeratorResponse, error)
+	UpdateStatus(ctx context.Context, in *UpdateStatusRequest, opts ...grpc.CallOption) (*UpdateStatusResponse, error)
 }
 
 type serverServiceClient struct {
@@ -128,11 +129,21 @@ func (c *serverServiceClient) SaveModerator(ctx context.Context, in *SaveModerat
 	return out, nil
 }
 
+func (c *serverServiceClient) UpdateStatus(ctx context.Context, in *UpdateStatusRequest, opts ...grpc.CallOption) (*UpdateStatusResponse, error) {
+	out := new(UpdateStatusResponse)
+	err := c.cc.Invoke(ctx, "/bot.ServerService/UpdateStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServerServiceServer is the server API for ServerService service.
 // All implementations must embed UnimplementedServerServiceServer
 // for forward compatibility
 type ServerServiceServer interface {
 	SaveModerator(context.Context, *SaveModeratorRequest) (*SaveModeratorResponse, error)
+	UpdateStatus(context.Context, *UpdateStatusRequest) (*UpdateStatusResponse, error)
 	mustEmbedUnimplementedServerServiceServer()
 }
 
@@ -142,6 +153,9 @@ type UnimplementedServerServiceServer struct {
 
 func (UnimplementedServerServiceServer) SaveModerator(context.Context, *SaveModeratorRequest) (*SaveModeratorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveModerator not implemented")
+}
+func (UnimplementedServerServiceServer) UpdateStatus(context.Context, *UpdateStatusRequest) (*UpdateStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStatus not implemented")
 }
 func (UnimplementedServerServiceServer) mustEmbedUnimplementedServerServiceServer() {}
 
@@ -174,6 +188,24 @@ func _ServerService_SaveModerator_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ServerService_UpdateStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServerServiceServer).UpdateStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bot.ServerService/UpdateStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServerServiceServer).UpdateStatus(ctx, req.(*UpdateStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ServerService_ServiceDesc is the grpc.ServiceDesc for ServerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -184,6 +216,10 @@ var ServerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SaveModerator",
 			Handler:    _ServerService_SaveModerator_Handler,
+		},
+		{
+			MethodName: "UpdateStatus",
+			Handler:    _ServerService_UpdateStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

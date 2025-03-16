@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"\xbe\x01\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\x12\x35\n\nmoderators\x18\x04 \x03(\x0b\x32!.bot.SendMessageRequest.Moderator\x1a?\n\tModerator\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t2S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2W\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"\xbe\x01\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\x12\x35\n\nmoderators\x18\x04 \x03(\x0b\x32!.bot.SendMessageRequest.Moderator\x1a?\n\tModerator\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t\"H\n\x13UpdateStatusRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\t\"\'\n\x14UpdateStatusResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2\x9c\x01\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponse\x12\x43\n\x0cUpdateStatus\x12\x18.bot.UpdateStatusRequest\x1a\x19.bot.UpdateStatusResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,8 +42,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SAVEMODERATORREQUEST']._serialized_end=329
   _globals['_SAVEMODERATORRESPONSE']._serialized_start=331
   _globals['_SAVEMODERATORRESPONSE']._serialized_end=384
-  _globals['_TELEGRAMSERVICE']._serialized_start=386
-  _globals['_TELEGRAMSERVICE']._serialized_end=469
-  _globals['_SERVERSERVICE']._serialized_start=471
-  _globals['_SERVERSERVICE']._serialized_end=558
+  _globals['_UPDATESTATUSREQUEST']._serialized_start=386
+  _globals['_UPDATESTATUSREQUEST']._serialized_end=458
+  _globals['_UPDATESTATUSRESPONSE']._serialized_start=460
+  _globals['_UPDATESTATUSRESPONSE']._serialized_end=499
+  _globals['_TELEGRAMSERVICE']._serialized_start=501
+  _globals['_TELEGRAMSERVICE']._serialized_end=584
+  _globals['_SERVERSERVICE']._serialized_start=587
+  _globals['_SERVERSERVICE']._serialized_end=743
 # @@protoc_insertion_point(module_scope)
