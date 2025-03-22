@@ -22,9 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\"\xbe\x01\n\x12SendMessageRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x0e\n\x06images\x18\x03 \x03(\t\x12\x35\n\nmoderators\x18\x04 \x03(\x0b\x32!.bot.SendMessageRequest.Moderator\x1a?\n\tModerator\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t\"H\n\x13UpdateStatusRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\t\"\'\n\x14UpdateStatusResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2\x9c\x01\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponse\x12\x43\n\x0cUpdateStatus\x12\x18.bot.UpdateStatusRequest\x1a\x19.bot.UpdateStatusResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rbot/bot.proto\x12\x03\x62ot\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcc\x01\n\x12SendMessageRequest\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x35\n\nmoderators\x18\x04 \x03(\x0b\x32!.bot.SendMessageRequest.Moderator\x12\x0f\n\x07user_id\x18\x05 \x01(\t\x12\x10\n\x08order_id\x18\x06 \x01(\t\x1a?\n\tModerator\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\tJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04\"&\n\x13SendMessageResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"J\n\x14SaveModeratorRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"5\n\x15SaveModeratorResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0b\n\x03uid\x18\x02 \x01(\t\"H\n\x13UpdateStatusRequest\x12\x0f\n\x07\x63hat_id\x18\x01 \x01(\t\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\t\"\'\n\x14UpdateStatusResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"#\n\x0fGetOrderRequest\x12\x10\n\x08order_id\x18\x02 \x01(\x03\"\x9a\x03\n\x10GetOrderResponse\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0f\n\x07\x63hat_id\x18\x02 \x01(\x03\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07\x61\x64\x64ress\x18\x07 \x01(\t\x12\x32\n\x0e\x65xecution_date\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06images\x18\t \x03(\t\x12\x37\n\x0f\x65xecution_times\x18\n \x03(\x0b\x32\x1e.bot.GetOrderResponse.ExecTime\x12\x17\n\x0f\x63lient_username\x18\x0b \x01(\t\x1a^\n\x08\x45xecTime\x12)\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2S\n\x0fTelegramService\x12@\n\x0bSendMessage\x12\x17.bot.SendMessageRequest\x1a\x18.bot.SendMessageResponse2\xd5\x01\n\rServerService\x12\x46\n\rSaveModerator\x12\x19.bot.SaveModeratorRequest\x1a\x1a.bot.SaveModeratorResponse\x12\x43\n\x0cUpdateStatus\x12\x18.bot.UpdateStatusRequest\x1a\x19.bot.UpdateStatusResponse\x12\x37\n\x08GetOrder\x12\x14.bot.GetOrderRequest\x1a\x15.bot.GetOrderResponseB\x0eZ\x0c\x62ot.v1;botv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,22 +33,28 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'bot.bot_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\014bot.v1;botv1'
-  _globals['_SENDMESSAGEREQUEST']._serialized_start=23
-  _globals['_SENDMESSAGEREQUEST']._serialized_end=213
-  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_start=150
-  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_end=213
-  _globals['_SENDMESSAGERESPONSE']._serialized_start=215
-  _globals['_SENDMESSAGERESPONSE']._serialized_end=253
-  _globals['_SAVEMODERATORREQUEST']._serialized_start=255
-  _globals['_SAVEMODERATORREQUEST']._serialized_end=329
-  _globals['_SAVEMODERATORRESPONSE']._serialized_start=331
-  _globals['_SAVEMODERATORRESPONSE']._serialized_end=384
-  _globals['_UPDATESTATUSREQUEST']._serialized_start=386
-  _globals['_UPDATESTATUSREQUEST']._serialized_end=458
-  _globals['_UPDATESTATUSRESPONSE']._serialized_start=460
-  _globals['_UPDATESTATUSRESPONSE']._serialized_end=499
-  _globals['_TELEGRAMSERVICE']._serialized_start=501
-  _globals['_TELEGRAMSERVICE']._serialized_end=584
-  _globals['_SERVERSERVICE']._serialized_start=587
-  _globals['_SERVERSERVICE']._serialized_end=743
+  _globals['_SENDMESSAGEREQUEST']._serialized_start=56
+  _globals['_SENDMESSAGEREQUEST']._serialized_end=260
+  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_start=185
+  _globals['_SENDMESSAGEREQUEST_MODERATOR']._serialized_end=248
+  _globals['_SENDMESSAGERESPONSE']._serialized_start=262
+  _globals['_SENDMESSAGERESPONSE']._serialized_end=300
+  _globals['_SAVEMODERATORREQUEST']._serialized_start=302
+  _globals['_SAVEMODERATORREQUEST']._serialized_end=376
+  _globals['_SAVEMODERATORRESPONSE']._serialized_start=378
+  _globals['_SAVEMODERATORRESPONSE']._serialized_end=431
+  _globals['_UPDATESTATUSREQUEST']._serialized_start=433
+  _globals['_UPDATESTATUSREQUEST']._serialized_end=505
+  _globals['_UPDATESTATUSRESPONSE']._serialized_start=507
+  _globals['_UPDATESTATUSRESPONSE']._serialized_end=546
+  _globals['_GETORDERREQUEST']._serialized_start=548
+  _globals['_GETORDERREQUEST']._serialized_end=583
+  _globals['_GETORDERRESPONSE']._serialized_start=586
+  _globals['_GETORDERRESPONSE']._serialized_end=996
+  _globals['_GETORDERRESPONSE_EXECTIME']._serialized_start=902
+  _globals['_GETORDERRESPONSE_EXECTIME']._serialized_end=996
+  _globals['_TELEGRAMSERVICE']._serialized_start=998
+  _globals['_TELEGRAMSERVICE']._serialized_end=1081
+  _globals['_SERVERSERVICE']._serialized_start=1084
+  _globals['_SERVERSERVICE']._serialized_end=1297
 # @@protoc_insertion_point(module_scope)
